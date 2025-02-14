@@ -10,11 +10,8 @@
 - [Написание тестов](#написание-тестов)
 - [Установка](#установка)
 - [API Endpoints](#api-endpoints)
-- [POST /users](#post-users)
-- [POST /interests](#post-interests)
-- [POST /skills](#post-skills)
 
-## Описание
+# Описание
 
 Данный проект демонстрирует рефакторинг кода,
 в рамках которого была реализована логика создания
@@ -25,11 +22,11 @@
 гема [OnlineMigrations](https://github.com/fatkodima/online_migrations).
 Ниже описаны задачи, выполненные в ходе выполнения задания.
 
-## Задачи
+# Задачи
 
 Были выполнены следующие шаги:
 
-#### Произведен рефакторинг класса Users::CreateUser
+## Произведен рефакторинг класса Users::CreateUser
 
 ❌ До рефакторинга:
 
@@ -133,7 +130,7 @@ def start_transaction(user, skills, interests)
 end
 ```
 
-#### Исправлена опечатка в моделе Skill
+## Исправлена опечатка в моделе Skill
 
 ❌ Простое переименование таблицы на продакшене является опасным,
 грозит возникновением ошибок и падением сервера:
@@ -197,7 +194,7 @@ end
 
 8. Деплой
 
-#### Исправлены связи между моделями
+## Исправлены связи между моделями
 
 * Обнаружено, что в моделях используется отношение многие-ко-многим.
 * Настроены ассоциации has_many :through
@@ -238,14 +235,14 @@ class ValidateForeignKeyOnUserSkills < ActiveRecord::Migration[8.0]
 end
 ```
 
-#### Написаны тесты
+## Написаны тесты
 
 Проект был покрыт тестами, а именно:
 
 * Контроллеры: UsersController, InterestsController, SkillsController
 * Класс Users::CreateUser
 
-## Установка
+# Установка
 
 Клонируйте репозиторий:
 
@@ -293,15 +290,15 @@ rails server
 bundle exec rspec
 ```
 
-## API Endpoints
+# API Endpoints
 
 Access the API at http://localhost:3000
 
-#### POST /users
+## POST /users
 
 Создание нового пользователя.
 
-##### Request
+### Request
 
 Headers: Content-Type: application/json
 
@@ -324,7 +321,7 @@ Example Body:
 }
 ```
 
-##### Response
+### Response
 
 Success (201):
 
@@ -342,11 +339,11 @@ Example Error (422):
 }
 ```
 
-#### POST /interests
+## POST /interests
 
 Создание нового интереса.
 
-##### Request
+### Request
 
 Headers: Content-Type: application/json
 
@@ -360,7 +357,7 @@ Example Body:
 }
 ```
 
-##### Response
+### Response
 
 Success (201):
 
@@ -374,11 +371,11 @@ Example Error (422):
 {"name":["can't be blank"]}
 ```
 
-#### POST /skills
+## POST /skills
 
 Создание нового навыка.
 
-##### Request
+### Request
 
 Headers: Content-Type: application/json
 
@@ -392,7 +389,7 @@ Example Body:
 }
 ```
 
-##### Response
+### Response
 
 Success (201):
 
