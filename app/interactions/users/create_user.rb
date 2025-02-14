@@ -35,13 +35,13 @@ module Users
       skills = skills_attributes.map { |item| Skill.find_or_initialize_by(name: item[:name]) }
       interests = interests_attributes.map { |item| Interest.find_or_initialize_by(name: item[:name]) }
 
-      start_transaction(user, skills, interests)
+      run_transaction(user, skills, interests)
       user
     end
 
     private
 
-    def start_transaction(user, skills, interests)
+    def run_transaction(user, skills, interests)
       ActiveRecord::Base.transaction do
         user.save!
         skills.each(&:save!)

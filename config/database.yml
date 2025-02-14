@@ -22,7 +22,7 @@ default: &default
 
 development:
   <<: *default
-  database: code_refactoring_task_development
+  database: refactored_interaction_development
 
   # The specified database role being used to connect to PostgreSQL.
   # To create additional roles in PostgreSQL see `$ createuser --help`.
@@ -56,7 +56,7 @@ development:
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: code_refactoring_task_test
+  database: refactored_interaction_task_test
 
 # As with config/credentials.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
@@ -81,18 +81,18 @@ test:
 production:
   primary: &primary_production
     <<: *default
-    database: code_refactoring_task_production
+    database: refactored_interaction_production
     username: refactored_interaction
-    password: <%= ENV["CODE_REFACTORING_TASK_DATABASE_PASSWORD"] %>
+    password: <%= ENV["REFACTORED_INTERACTION_DATABASE_PASSWORD"] %>
   cache:
     <<: *primary_production
-    database: code_refactoring_task_production_cache
+    database: refactored_interaction_production_cache
     migrations_paths: db/cache_migrate
   queue:
     <<: *primary_production
-    database: code_refactoring_task_production_queue
+    database: refactored_interaction_production_queue
     migrations_paths: db/queue_migrate
   cable:
     <<: *primary_production
-    database: code_refactoring_task_production_cable
+    database: refactored_interaction_production_cable
     migrations_paths: db/cable_migrate
